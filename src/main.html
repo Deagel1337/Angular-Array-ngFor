@@ -1,0 +1,43 @@
+<h1>Array</h1>
+<h2>Add User</h2>
+<form autocomple="off" (submit)="addUser()">
+  <div>
+    <label for="name">Name: </label>
+    <input type="text" id="name" name="name" [(ngModel)]="user.name" />
+  </div>
+  <div>
+    <label for="age">Name: </label>
+    <input type="text" id="age" name="age" [(ngModel)]="user.age" />
+  </div>
+  <div>
+    <label for="country">Name: </label>
+    <input type="text" id="country" name="country" [(ngModel)]="user.country" />
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+<div>
+  <h2>List of Users</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Country</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList;let i = index">
+        <th>{{i}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.country}}</td>
+        <td>
+          <button style="btn btn-danger" (click)="deleteUser(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -7,15 +7,26 @@ import { bootstrapApplication } from '@angular/platform-browser';
   selector: 'my-app',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <h1>Hello from {{name}}!</h1>
-    <a target="_blank" href="https://angular.io/start">
-      Learn more about Angular 
-    </a>
-  `,
+  templateUrl: './main.html',
 })
+interface User{
+  name:string,
+  age:number,
+  country:string
+}
 export class App {
   name = 'Angular';
+  user:User;
+  userList: User[] = []
+
+  addUser(){
+    this.userList.push(this.user)
+  }
+
+  deleteUser(index: number){
+    this.user.splice(index,1)
+  }
+
 }
 
 bootstrapApplication(App);
